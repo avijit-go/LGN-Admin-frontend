@@ -9,12 +9,13 @@ import {
   Alert,
   AlertIcon,
   AlertTitle,
-  AlertDescription,
+  AlertDescription,Img
 } from "@chakra-ui/react";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import AuthButton from "../../Components/ButtonComp/AuthButton";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../Assets/lgn_logo.png"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -74,6 +75,11 @@ const Login = () => {
 
   return (
     <Box className='auth_page_container'>
+      <Box>
+      <Box className="image_container">
+        <Img src={Logo} className="logo_auth" />
+      </Box>
+
       {/* Form section */}
       <Box className='auth_form_section'>
         {/* Email inputs */}
@@ -124,6 +130,7 @@ const Login = () => {
             <AlertDescription>{error}</AlertDescription>
           </Alert>
         )}
+      </Box>
       </Box>
     </Box>
   );

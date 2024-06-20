@@ -5,12 +5,14 @@ import InputComp from '../../Components/InputComp/InputComp';
 import { Box,Alert,
     AlertIcon,
     AlertTitle,
-    AlertDescription,  } from '@chakra-ui/react';
+    AlertDescription, Img } from '@chakra-ui/react';
 import { FaUser } from "react-icons/fa";
 import { MdOutlineEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import AuthButton from '../../Components/ButtonComp/AuthButton';
 import { useNavigate } from 'react-router-dom';
+import Logo from "../../Assets/lgn_logo.png"
+
 
 const Register = () => {
     const navigate = useNavigate();
@@ -72,65 +74,71 @@ const Register = () => {
 
   return (
     <Box className='auth_page_container'>
-        {/* Form section */}
-        <Box className='auth_form_section'>
-            {/* Name inputs */}
-            <Box className='input_section'>
-                <Box className='input_icons'><FaUser /></Box>
-                <InputComp 
-                    type="text" 
-                    className={"auth_input"}
-                    placeholder={"Name"} 
-                    value={name} 
-                    handleChange={e => setName(e.target.value)}
-                />
-            </Box>
+        <Box>
+      <Box className="image_container">
+        <Img src={Logo} className="logo_auth" />
+      </Box>
 
-            {/* Email inputs */}
-            <Box className='input_section'>
-                <Box className='input_icons'><MdOutlineEmail /></Box>
-                <InputComp 
-                    type="email" 
-                    className={"auth_input"}
-                    placeholder={"Email"} 
-                    value={email} 
-                    handleChange={e => setEmail(e.target.value)}
-                />
-            </Box>
+     {/* Form section */}
+<Box className='auth_form_section'>
+{/* Name inputs */}
+<Box className='input_section'>
+    <Box className='input_icons'><FaUser /></Box>
+    <InputComp 
+        type="text" 
+        className={"auth_input"}
+        placeholder={"Name"} 
+        value={name} 
+        handleChange={e => setName(e.target.value)}
+    />
+</Box>
 
-            {/* Email inputs */}
-            <Box className='input_section'>
-                <Box className='input_icons'><IoMdLock /></Box>
-                <InputComp 
-                    type="password" 
-                    className={"auth_input"}
-                    placeholder={"Password"} 
-                    value={password} 
-                    handleChange={e => setPassword(e.target.value)}
-                />
-            </Box>
+{/* Email inputs */}
+<Box className='input_section'>
+    <Box className='input_icons'><MdOutlineEmail /></Box>
+    <InputComp 
+        type="email" 
+        className={"auth_input"}
+        placeholder={"Email"} 
+        value={email} 
+        handleChange={e => setEmail(e.target.value)}
+    />
+</Box>
 
-            <Box className='redirection_link' onClick={() => navigate("/login")}>
-                Already have an account?
-            </Box>
+{/* Email inputs */}
+<Box className='input_section'>
+    <Box className='input_icons'><IoMdLock /></Box>
+    <InputComp 
+        type="password" 
+        className={"auth_input"}
+        placeholder={"Password"} 
+        value={password} 
+        handleChange={e => setPassword(e.target.value)}
+    />
+</Box>
 
-            <AuthButton 
-                disable={disable} 
-                loading={loading} 
-                className={'auth_button'} 
-                disableClassName={'disable_auth_button'} 
-                text="Register" 
-                handleClick={handleRegister}
-            />
-            {
-              error && 
-              <Alert status='error'>
-                <AlertIcon />
-                <AlertTitle>Error!</AlertTitle>
-                <AlertDescription>{error}</AlertDescription>
-              </Alert>
-            }
-        </Box>
+<Box className='redirection_link' onClick={() => navigate("/login")}>
+    Already have an account?
+</Box>
+
+<AuthButton 
+    disable={disable} 
+    loading={loading} 
+    className={'auth_button'} 
+    disableClassName={'disable_auth_button'} 
+    text="Register" 
+    handleClick={handleRegister}
+/>
+{
+  error && 
+  <Alert status='error'>
+    <AlertIcon />
+    <AlertTitle>Error!</AlertTitle>
+    <AlertDescription>{error}</AlertDescription>
+  </Alert>
+}
+</Box>
+      </Box>
     </Box>
   )
 }
