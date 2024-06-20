@@ -6,12 +6,17 @@
     justify-content: center;
     background-color: #2f3542 !important;
 }
+.logo_auth {
+    width: 90px;
+    height: 90px;
+    margin: 7px auto;
+}
 .auth_form_section {
     max-width: 380px;
     width: 100%;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
 }
 .input_section {
     width: 100%;
