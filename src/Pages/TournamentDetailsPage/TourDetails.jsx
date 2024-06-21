@@ -40,7 +40,7 @@ const TourDetails = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: `${process.env.REACT_APP_BASE_URL}api/tournament/create/${id}`,
+      url: `${process.env.REACT_APP_BASE_URL}api/tournament/${id}`,
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -48,9 +48,10 @@ const TourDetails = () => {
     axios
       .request(config)
       .then((response) => {
-        setturnamentDetails(response.data.tournament);
+        console.log(response.data)
+        setturnamentDetails(response.data.result);
         setLoading(false);
-        socket.emit("join room", response.data.tournament);
+        socket.emit("join room", response.data.result);
       })
       .catch((error) => {
         console.log(error);
